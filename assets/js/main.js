@@ -112,11 +112,16 @@ const tfgText = document.getElementById("tfg-text");
 const tfgToggle = document.getElementById("tfg-toggle");
 const tfgShort = document.getElementById("tfg-short");
 const tfgLong = document.getElementById("tfg-long");
+const tfgAside = document.getElementById("tfg-aside");
+const tfgMrz = document.querySelector(".mrz");
 tfgToggle.addEventListener("click", () => {
   const toLong = tfgText.dataset.view === "short";
   const [from, to] = toLong ? [tfgShort, tfgLong] : [tfgLong, tfgShort];
   from.classList.add("fading");
+  tfgMrz.classList.add("fading");
   setTimeout(() => {
+    // La MRZ acompaña al cambio: bajo los datos con el texto largo, bajo el texto con el corto
+    (toLong ? tfgAside : tfgText).appendChild(tfgMrz);
     from.hidden = true;
     from.classList.remove("fading");
     to.classList.add("fading");
@@ -127,7 +132,7 @@ tfgToggle.addEventListener("click", () => {
     if (!toLong && tfgText.getBoundingClientRect().top < 0) {
       tfgText.scrollIntoView({ block: "start" });
     }
-    requestAnimationFrame(() => to.classList.remove("fading"));
+    requestAnimationFrame(() => { to.classList.remove("fading"); tfgMrz.classList.remove("fading"); });
   }, 220);
 });
 

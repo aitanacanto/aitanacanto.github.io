@@ -1,16 +1,16 @@
-/* ---------- Colores: crema, gris cálido y azul suave ---------- */
+/* ---------- Colores: gris claro, tinta y azul suave ---------- */
 :root {
-  --bg: #f5f1ea;
-  --bg-alt: #ece6db;
-  --surface: #fbf9f5;
-  --ink: #24211d;
-  --muted: #6e675d;
-  --line: #ddd5c7;
+  --bg: #eeeff0;
+  --bg-alt: #e4e6e8;
+  --surface: #f8f8f9;
+  --ink: #202226;
+  --muted: #62676f;
+  --line: #d4d8dc;
   --accent: #4d6b8a;
   --accent-soft: #dde5ec;
   --green: #4f7a5c;
   --shadow: 0 1px 2px rgba(36, 33, 29, .05), 0 12px 32px -12px rgba(36, 33, 29, .18);
-  --serif: "Bodoni Moda", Georgia, serif;
+  --serif: "Newsreader", Georgia, serif;
   --sans: "Jost", system-ui, sans-serif;
   color-scheme: light;
 }
@@ -75,13 +75,13 @@ section { padding-block: clamp(4rem, 9vw, 7rem); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
 .label {
-  font-size: .78rem;
-  letter-spacing: .16em;
-  text-transform: uppercase;
+  display: flex; align-items: center; gap: .8rem;
+  font-size: 1.02rem;
   color: var(--accent);
   font-weight: 500;
   margin-bottom: 1rem;
 }
+.label::before { content: ""; flex: none; width: 28px; height: 1.5px; background: currentColor; }
 .meta { font-size: .85rem; color: var(--muted); margin-bottom: .6rem; }
 /* Etiqueta de sección sin título grande debajo */
 .label-solo { margin-bottom: 2.2rem; }
@@ -146,8 +146,9 @@ html[data-lang="en"] .lang-opt[data-opt="en"] { color: var(--ink); }
   display: grid;
   grid-template-columns: 1.35fr .9fr;
   gap: clamp(2rem, 6vw, 5rem);
-  align-items: center;
-  padding-block: clamp(3rem, 8vw, 6rem) clamp(4rem, 9vw, 7rem);
+  /* El texto termina a la altura del bloque de formación: sin hueco antes de «Sobre mí» */
+  align-items: end;
+  padding-block: clamp(3rem, 7vw, 5rem) clamp(2.5rem, 5vw, 3.5rem);
 }
 .eyebrow { color: var(--muted); font-size: .95rem; margin-bottom: 1.2rem; }
 h1 { font-size: clamp(3rem, 7.5vw, 5.6rem); line-height: 1; margin-bottom: 1.8rem; }
@@ -168,29 +169,51 @@ h1 { font-size: clamp(3rem, 7.5vw, 5.6rem); line-height: 1; margin-bottom: 1.8re
 .btn[hidden] { display: none; }
 
 .portrait { margin: 0; }
+/* Foto rectangular con un marco fino desplazado detrás */
 .portrait-frame {
   position: relative;
   aspect-ratio: 4 / 5;
-  border-radius: 200px 200px 14px 14px;
-  overflow: hidden;
-  background: linear-gradient(160deg, var(--accent-soft), var(--bg-alt));
-  box-shadow: var(--shadow);
+  margin-right: 14px;
 }
-.portrait-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.portrait-frame::before {
+  content: ""; position: absolute; inset: 0; transform: translate(14px, 14px);
+  border: 1.5px solid var(--accent); border-radius: 2px;
+}
+.portrait-frame img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  border-radius: 2px; background: linear-gradient(160deg, var(--accent-soft), var(--bg-alt));
+}
 .monogram {
   position: absolute; inset: 0; display: grid; place-items: center;
   font: italic 500 clamp(4rem, 9vw, 6.5rem) var(--serif); color: var(--accent); opacity: .55;
 }
-.portrait figcaption { display: flex; justify-content: space-between; font-size: .82rem; color: var(--muted); margin-top: .9rem; letter-spacing: .04em; }
+/* Formación y movilidad, como pie de la foto */
+.hero-info { display: grid; grid-template-columns: 1fr 1.5fr; gap: 1.2rem; margin-top: calc(14px + 1.1rem); font-size: .88rem; color: var(--muted); line-height: 1.5; }
+.hero-info p { margin: 0; }
+.hero-info strong { display: block; color: var(--ink); font-weight: 600; }
 
 /* ---------- Sobre mí ---------- */
 .about { padding-top: 0; }
-.about-text { columns: 2; column-gap: clamp(2rem, 5vw, 4rem); font-size: 1.05rem; }
-.about-text p { break-inside: avoid; }
+/* Primer párrafo a todo el ancho como introducción; los otros dos, en dos columnas */
+.about-text { display: grid; grid-template-columns: 1fr 1fr; column-gap: clamp(2rem, 5vw, 4rem); font-size: 1.05rem; }
+.about-text .about-lead { grid-column: 1 / -1; font-family: var(--serif); font-size: clamp(1.35rem, 2.3vw, 1.75rem); line-height: 1.4; max-width: 46ch; margin-bottom: 1.6rem; color: var(--ink); }
 
 /* ---------- TFG ---------- */
 .tfg { background: var(--bg-alt); border-block: 1px solid var(--line); }
-.tfg-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+.tfg-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: stretch; }
+.tfg-text { display: flex; flex-direction: column; }
+.tfg-text .more-toggle { align-self: flex-start; }
+.tfg-text .tags { margin-bottom: 1.2rem; }
+/* El recuadro de datos se estira para terminar a la vez que la MRZ.
+   Con el texto largo, la MRZ pasa debajo del recuadro y este vuelve a su altura */
+.tfg-aside { display: flex; flex-direction: column; }
+.stats { flex: 1; grid-auto-rows: 1fr; }
+.tfg-grid:has(.tfg-text[data-view="long"]) .tfg-aside { align-self: start; }
+.tfg-grid:has(.tfg-text[data-view="long"]) .stats { flex: none; grid-auto-rows: auto; }
+.tfg-aside .mrz { margin-top: 1.6rem; letter-spacing: .06em; }
+.mrz { transition: opacity .22s ease; }
+.mrz.fading { opacity: 0; }
+.stats div { display: flex; flex-direction: column; justify-content: center; }
 .tfg-text p { max-width: 62ch; }
 .tfg-version { transition: opacity .22s ease; }
 .tfg-version.fading { opacity: 0; }
@@ -208,6 +231,13 @@ h1 { font-size: clamp(3rem, 7.5vw, 5.6rem); line-height: 1; margin-bottom: 1.8re
 .stats dt { font: 500 2.6rem/1 var(--serif); margin-bottom: .45rem; }
 .stats dd { margin: 0; font-size: .92rem; color: var(--muted); }
 
+/* Zona MRZ decorativa del TFG, como la de un documento de identidad */
+.mrz {
+  margin-top: auto; padding-top: 1rem; border-top: 1px dashed var(--line);
+  font: 500 clamp(.72rem, 1.05vw, .95rem)/1.6 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: .14em; color: var(--muted); opacity: .8;
+  white-space: nowrap; overflow: hidden; user-select: none;
+}
 .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 3.5rem; }
 .shot { margin: 0; }
 .shot a { display: block; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); box-shadow: var(--shadow); background: var(--surface); }
@@ -392,7 +422,7 @@ html:has(.lightbox[open]) { overflow: hidden; }
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .hero, .tfg-grid, .path-grid, .beyond-grid { grid-template-columns: 1fr; }
-  .about-text { columns: 1; }
+  .about-text { grid-template-columns: 1fr; }
   .portrait { max-width: 340px; order: -1; }
   .project, .project.flip { grid-template-columns: 1fr; grid-template-rows: auto; grid-template-areas: "head" "main" "side"; }
   /* En una sola columna la imagen recupera su altura natural */
@@ -420,7 +450,11 @@ html:has(.lightbox[open]) { overflow: hidden; }
   body { font-size: 16px; }
   .nav-inner { gap: 1rem; }
   .gallery, .more-list { grid-template-columns: 1fr; }
-  .portrait { max-width: 260px; }
+  /* En móvil: foto arriba, luego el texto y, al final, la formación y movilidad */
+  .portrait { display: contents; }
+  .portrait-frame { order: -1; width: min(280px, 100% - 14px); margin-bottom: 14px; }
+  .hero-info { order: 1; grid-template-columns: 1fr; gap: .8rem; margin-top: 0; }
+  .mrz { letter-spacing: .06em; margin-top: .4rem; }
   .footer { flex-direction: column; gap: .6rem; }
 }
 @media (max-width: 360px) {
