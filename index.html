@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="es" data-lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aitana Cantó Rico · Portfolio</title>
+  <meta name="description" content="Portfolio de Aitana Cantó Rico, estudiante de Ingeniería Informática (Universidad de Alicante) interesada en IA aplicada y automatización. Proyectos, TFG y contacto.">
+  <meta property="og:title" content="Aitana Cantó Rico · Portfolio">
+  <meta property="og:description" content="IA aplicada, automatización y desarrollo de software. TFG de validación documental con Facephi.">
+  <meta property="og:image" content="assets/img/tfg-result.webp">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <script>
+    // Idioma guardado o el del navegador, antes de pintar para que no parpadee.
+    try {
+      var l = localStorage.getItem("lang");
+      if (!l) l = (navigator.language || "es").toLowerCase().indexOf("es") === 0 ? "es" : "en";
+      document.documentElement.dataset.lang = l;
+      document.documentElement.lang = l;
+      // Tema elegido con el botón; si no hay, manda el del navegador
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch (_) {}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&family=Jost:wght@400;500;600&display=swap">
+  <!-- Al cambiar el CSS o el JS, sube el número de ?v= para que los navegadores no usen la copia vieja -->
+  <link rel="stylesheet" href="assets/css/style.css?v=21">
+</head>
+<body>
+
+<a class="skip" href="#main"><span data-l="es">Saltar al contenido</span><span data-l="en">Skip to content</span></a>
+
+<header class="nav" id="top">
+  <div class="wrap nav-inner">
+    <a class="wordmark" href="#top">Aitana Cantó Rico</a>
+    <!-- Solo en móvil: abre el panel con las secciones, el tema y el idioma -->
+    <button class="menu-btn" id="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-menu" id="nav-menu">
+      <nav aria-label="Principal">
+        <a href="#sobre-mi"><span data-l="es">Sobre mí</span><span data-l="en">About</span></a>
+        <a href="#tfg">TFG</a>
+        <a href="#proyectos"><span data-l="es">Proyectos</span><span data-l="en">Projects</span></a>
+        <a href="#trayectoria"><span data-l="es">Trayectoria</span><span data-l="en">Background</span></a>
+        <a href="#contacto"><span data-l="es">Contacto</span><span data-l="en">Contact</span></a>
+      </nav>
+      <div class="nav-tools">
+        <button class="theme-btn" id="theme-toggle" type="button" aria-label="Cambiar a modo oscuro">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button>
+        <button class="lang" id="lang-toggle" type="button" aria-label="Cambiar idioma / Change language">
+          <span class="lang-opt" data-opt="es">ES</span><span class="lang-sep">/</span><span class="lang-opt" data-opt="en">EN</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero wrap">
+    <div class="hero-text">
+      <p class="eyebrow">
+        <span data-l="es">Ingeniería Informática · Universidad de Alicante</span>
+        <span data-l="en">Computer Engineering · University of Alicante</span>
+      </p>
+      <h1>Aitana Cantó</h1>
+      <p class="lead" data-l="es">Estoy terminando Ingeniería Informática en la Universidad de Alicante, en el itinerario de Computación. Me interesa la inteligencia artificial aplicada a problemas reales: el análisis de datos, los modelos predictivos y la automatización de procesos. He estudiado un cuatrimestre en Nueva Zelanda y otro en Atenas, y ahora busco unas prácticas o un primer puesto como junior donde aplicar lo que he aprendido y seguir creciendo.</p>
+      <p class="lead" data-l="en">I'm finishing my Computer Engineering degree at the University of Alicante, in the Computing track. I'm interested in AI applied to real problems: data analysis, predictive models and process automation. I spent a semester in New Zealand and another in Athens, and I'm now looking for an internship or a first junior role where I can apply what I've learned and keep growing.</p>
+      <p class="status"><span class="dot" aria-hidden="true"></span>
+        <span data-l="es">Disponible para prácticas o puesto junior · en España o en el extranjero</span>
+        <span data-l="en">Open to internships or junior roles · in Spain or abroad</span>
+      </p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#tfg"><span data-l="es">Ver mi TFG</span><span data-l="en">See my thesis</span></a>
+        <a class="btn" href="#proyectos"><span data-l="es">Proyectos</span><span data-l="en">Projects</span></a>
+        <a class="btn" id="cv-link" href="#" hidden download><span data-l="es">Descargar CV</span><span data-l="en">Download CV</span></a>
+      </div>
+    </div>
+    <figure class="portrait">
+      <div class="portrait-frame">
+        <span class="monogram" aria-hidden="true">AC</span>
+        <img id="portrait-img" src="assets/img/aitana.jpg" alt="Aitana Cantó Rico" width="600" height="750">
+      </div>
+    </figure>
+  </section>
+
+  <!-- ============ SOBRE MÍ ============ -->
+  <section class="about wrap" id="sobre-mi">
+    <p class="label"><span data-l="es">Sobre mí</span><span data-l="en">About me</span></p>
+    <div class="about-text">
+      <p data-l="es">Me llamo Aitana y estoy terminando Ingeniería Informática en la Universidad de Alicante, en el itinerario de Computación. Siempre he sido una persona curiosa, con muchas inquietudes y ganas de aprender y desarrollar nuevas habilidades. Me interesa especialmente la inteligencia artificial aplicada a la resolución de problemas reales, en particular el análisis de datos, la detección de patrones, los modelos predictivos y la automatización de procesos. Me motiva descubrir cómo utilizar estas tecnologías para resolver problemas concretos de empresas y personas, como validar documentos de forma automática, que es lo que hago en mi TFG.</p>
+      <p data-l="en">My name is Aitana and I'm finishing my Computer Engineering degree at the University of Alicante, in the Computing track. I've always been a curious person, with lots of interests and a real wish to keep learning and building new skills. I'm especially interested in AI applied to solving real problems, particularly data analysis, pattern detection, predictive models and process automation. What motivates me is finding out how to use these technologies to solve concrete problems for companies and people, such as validating documents automatically, which is what I do in my thesis.</p>
+      <p data-l="es">Durante mi etapa universitaria he realizado dos movilidades internacionales: un cuatrimestre en la Universidad de Waikato, en Nueva Zelanda, y otro en la Universidad de West Attica, en Atenas. Gracias a esas experiencias aprendí a desenvolverme en ambientes internacionales y multiculturales en inglés, a salir de mi zona de confort y a enfrentarme a nuevos retos.</p>
+      <p data-l="en">During my degree I did two international exchanges: a semester at the University of Waikato in New Zealand and another at the University of West Attica in Athens. Those experiences taught me to work in English in international, multicultural settings, to step out of my comfort zone and to take on new challenges.</p>
+    </div>
+  </section>
+
+  <!-- ============ TFG ============ -->
+  <section class="tfg" id="tfg">
+    <div class="wrap">
+      <p class="label">
+        <span data-l="es">Trabajo de Fin de Grado · en colaboración con Facephi</span>
+        <span data-l="en">Bachelor's thesis · in collaboration with Facephi</span>
+      </p>
+      <h2>
+        <span data-l="es">Validar un DNI a partir de dos fotografías</span>
+        <span data-l="en">Validating a Spanish ID card from two photos</span>
+      </h2>
+
+      <div class="tfg-grid">
+        <div class="tfg-text" id="tfg-text" data-view="short">
+          <div class="tfg-version" id="tfg-short">
+            <p data-l="es">Sistema que comprueba un DNI español a partir de una foto de cada cara: lee los campos por OCR, valida la MRZ, cruza los datos del anverso con los del reverso y devuelve válido, inválido o revisión manual. Encima monté una capa en LangGraph que decide cuándo usar herramientas de apoyo, y da los mismos veredictos que usarlas siempre con un 43&nbsp;% menos de ejecuciones. También creé un conjunto de 27 DNI sintéticos con alteraciones de campos para usarlos como casos adversariales en la evaluación. TFG propuesto con Facephi.</p>
+            <p data-l="en">A system that checks a Spanish ID card (DNI) from one photo of each side: it reads the fields with OCR, validates the MRZ, cross-checks the front against the back and returns valid, invalid or manual review. On top of it I built a LangGraph layer that decides when to use support tools; it gives the same verdicts as always using them, with 43% fewer runs. I also created a set of 27 synthetic ID cards with altered fields to use as adversarial cases in the evaluation. Thesis proposed with Facephi.</p>
+          </div>
+
+          <div class="tfg-version" id="tfg-long" hidden>
+            <p data-l="es">Trabajo de Fin de Grado propuesto en colaboración con Facephi. Partiendo solo de una foto del anverso y otra del reverso de un DNI español, el sistema lee los campos por OCR, recalcula los dígitos de control de la MRZ según la norma ICAO 9303 y cruza los datos de las dos caras en 11 verificaciones. Puede responder válido, inválido o revisión manual. Este último lo diseñé para que un caso dudoso acabe en manos de una persona y el sistema no lo decida a ciegas. Para evaluarlo generé 27 DNI sintéticos con campos alterados: una letra del NIF que no cuadra con los dígitos, un dígito de control de la MRZ modificado, un nombre distinto en cada cara. Cada uno debería hacer saltar una verificación concreta.</p>
+            <p data-l="en">Bachelor's thesis proposed in collaboration with Facephi. Starting from just a photo of the front and one of the back of a Spanish ID card, the system reads the fields with OCR, recomputes the MRZ check digits following ICAO 9303 and cross-checks both sides in 11 verifications. It can answer valid, invalid or manual review. I designed the last one so that a doubtful case ends up with a person instead of the system deciding blindly. To evaluate it I generated 27 synthetic ID cards with altered fields: an NIF letter that doesn't match its digits, a modified MRZ check digit, a different name on each side. Each one should trigger a specific check.</p>
+
+            <p data-l="es">Sobre esa base construí una capa de orquestación con LangGraph. Decide cuándo compensa pasar un filtro de calidad de imagen o releer un campo concreto. La comparé en 54 documentos degradados con no usar nunca esas herramientas y con usarlas siempre: dio los mismos veredictos que usarlas siempre, con 155 ejecuciones de apoyo en vez de 270 (un 43&nbsp;% menos). Las tres configuraciones comparten el código que emite el veredicto, así que la diferencia solo puede venir de la política, y por eso sé que lo que mejora es el coste y no el acierto.</p>
+            <p data-l="en">On top of that base I built an orchestration layer with LangGraph. It decides when it's worth running an image-quality filter or re-reading a specific field. I compared it on 54 degraded documents against never using those tools and always using them: it gave the same verdicts as always using them, with 155 support runs instead of 270 (43% fewer). All three configurations share the code that issues the verdict, so the difference can only come from the policy, which is how I know that what improves is the cost, not the accuracy.</p>
+
+            <p data-l="es">Para enseñarlo diseñé también una interfaz web. Subes las dos caras, eliges la configuración y ves cómo avanza el grafo paso a paso, con las verificaciones en tiempo real.</p>
+            <p data-l="en">To show it, I also designed a web interface. You upload both sides, choose the configuration and watch the graph progress step by step, with the checks in real time.</p>
+          </div>
+
+          <button class="more-toggle" id="tfg-toggle" type="button" aria-controls="tfg-short tfg-long" aria-expanded="false">
+            <span class="if-short"><span data-l="es">Ver más</span><span data-l="en">Read more</span> →</span>
+            <span class="if-long">← <span data-l="es">Ver menos</span><span data-l="en">Read less</span></span>
+          </button>
+
+          <ul class="tags">
+            <li>Python</li><li>PaddleOCR</li><li>LangGraph</li><li>OpenCV</li><li>FastAPI</li><li>pytest</li>
+          </ul>
+        </div>
+
+        <dl class="stats">
+          <div><dt>11</dt><dd><span data-l="es">verificaciones cruzadas entre anverso, reverso y MRZ</span><span data-l="en">cross-checks between front, back and MRZ</span></dd></div>
+          <div><dt>3</dt><dd><span data-l="es">veredictos, con revisión manual para los casos dudosos</span><span data-l="en">verdicts, with manual review for doubtful cases</span></dd></div>
+          <div><dt>−43&nbsp;%</dt><dd><span data-l="es">de ejecuciones de apoyo con los mismos veredictos (155 frente a 270)</span><span data-l="en">support-tool runs for identical verdicts (155 vs 270)</span></dd></div>
+        </dl>
+      </div>
+
+      <div class="gallery">
+        <figure class="shot">
+          <a href="assets/img/tfg-graph.webp"><img src="assets/img/tfg-graph.webp" alt="Interfaz del TFG mostrando el grafo de la configuración C" loading="lazy" width="1600" height="1000"></a>
+          <figcaption><span data-l="es">El grafo de la configuración C, que se ilumina según avanza el análisis.</span><span data-l="en">The configuration C graph, which lights up as the analysis runs.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="assets/img/tfg-upload.webp"><img src="assets/img/tfg-upload.webp" alt="Pantalla de subida del anverso y reverso del DNI" loading="lazy" width="1600" height="1000"></a>
+          <figcaption><span data-l="es">Subida de las dos caras (espécimen oficial del DNI).</span><span data-l="en">Uploading both sides (official DNI specimen).</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="assets/img/tfg-result.webp"><img src="assets/img/tfg-result.webp" alt="Resultado de la validación con veredicto válido" loading="lazy" width="1600" height="1000"></a>
+          <figcaption><span data-l="es">Veredicto con su explicación y la puntuación documental.</span><span data-l="en">Verdict with its explanation and document score.</span></figcaption>
+        </figure>
+        <figure class="shot">
+          <a href="assets/img/tfg-anatomy.webp"><img src="assets/img/tfg-anatomy.webp" alt="MRZ con sus dígitos de control y tabla que compara los datos del anverso con los de la MRZ" loading="lazy" width="1600" height="1000"></a>
+          <figcaption><span data-l="es">La MRZ con sus dígitos de control y la comparación del anverso con la MRZ.</span><span data-l="en">The MRZ with its check digits, and the front side compared with the MRZ.</span></figcaption>
+        </figure>
+      </div>
+
+      <p class="note" data-l="es">Es un prototipo académico: no sustituye la verificación oficial del DNIe, no lee el chip ni hace biometría facial.</p>
+      <p class="note" data-l="en">It is an academic prototype: it does not replace official DNIe verification, it does not read the chip and it does no face biometrics.</p>
+    </div>
+  </section>
+
+  <!-- ============ PROYECTOS ============ -->
+  <section class="projects wrap" id="proyectos">
+    <p class="label"><span data-l="es">Proyectos</span><span data-l="en">Projects</span></p>
+    <h2><span data-l="es">Lo que he construido en la carrera</span><span data-l="en">What I've built during my degree</span></h2>
+
+    <!-- Predicción de autobuses -->
+    <article class="project">
+      <header class="project-head">
+        <p class="meta"><span data-l="es">Universidad de Waikato</span><span data-l="en">University of Waikato</span> · Machine Learning for Data Streams · 2025 · <span data-l="es">equipo de seis</span><span data-l="en">team of six</span></p>
+        <h3><span data-l="es">Predicción de ocupación de autobuses en tiempo real</span><span data-l="en">Real-time bus crowding forecasting</span></h3>
+      </header>
+      <div class="project-main">
+        <figure class="project-media fit-whole">
+          <a href="assets/img/transit-architecture.webp"><img src="assets/img/transit-architecture.webp" alt="Diagrama que une la predicción de ocupación con la recomendación de paradas alternativas" loading="lazy" width="1600" height="654"></a>
+        </figure>
+      </div>
+      <div class="project-side">
+        <p data-l="es">Con datos de diez paradas de Salvador (Brasil) predecimos la ocupación media de los siguientes 30 minutos, usando modelos que aprenden a medida que llegan los datos. Comparamos enfoques autorregresivos, la codificación de hora y parada y variables de contexto con KNN, FIMT-DD y Adaptive Random Forest; además montamos un prototipo que propone paradas alternativas cuando se prevé saturación.</p>
+        <p data-l="en">Using data from ten bus stops in Salvador (Brazil), we forecast average crowding for the next 30 minutes with models that learn as the data arrives. We compared autoregressive approaches, time and stop encodings and contextual features with KNN, FIMT-DD and Adaptive Random Forest, and built a prototype that suggests alternative stops when crowding is expected.</p>
+        <p class="role" data-l="es"><strong>Mi parte:</strong> planteamiento, metodología, software y redacción del artículo, y el desarrollo y la evaluación del modelo de referencia basado en hora y parada. El mejor modelo bajó el MAE de 7,43 a 6,24 frente a la referencia ingenua.</p>
+        <p class="role" data-l="en"><strong>My part:</strong> conceptualisation, methodology, software and writing of the paper, plus building and evaluating the time-and-stop baseline. The best model cut MAE from 7.43 to 6.24 against the naive baseline.</p>
+        <p class="role" data-l="es"><strong>Lo que aprendí:</strong> en lo técnico, a trabajar con modelos que aprenden mientras llegan los datos y a comprobar si de verdad mejoran frente a una referencia sencilla. En lo personal, fue mi primer proyecto en un equipo internacional de seis personas y en inglés: al principio me costó que mis propuestas se escucharan, y eso me obligó a explicarlas mejor y a construir sobre las ideas de los demás.</p>
+        <p class="role" data-l="en"><strong>What I learned:</strong> technically, how to work with models that learn as the data arrives, and how to check whether they really beat a simple baseline. Personally, it was my first project in an international team of six, working in English: at first it was hard to get my proposals heard, which pushed me to explain them better and to build on other people's ideas.</p>
+        <ul class="tags"><li>Python</li><li>CapyMOA</li><li>pandas</li><li>scikit-learn</li><li>Jupyter</li></ul>
+        <a class="repo-link" data-repo="StreamingTransitForecasting" hidden>GitHub →</a>
+      </div>
+    </article>
+
+    <!-- Buscador académico -->
+    <article class="project flip">
+      <header class="project-head">
+        <p class="meta"><span data-l="es">Universidad de West Attica</span><span data-l="en">University of West Attica</span> · Information Retrieval · 2025–2026 · <span data-l="es">individual</span><span data-l="en">individual</span></p>
+        <h3><span data-l="es">Buscador de artículos académicos</span><span data-l="en">Academic paper search engine</span></h3>
+      </header>
+      <div class="project-main">
+        <figure class="project-media">
+          <a href="assets/img/search.webp"><img src="assets/img/search.webp" alt="Interfaz local del buscador de artículos con resultados" loading="lazy" width="1265" height="1110"></a>
+        </figure>
+        <p data-l="es">Un motor de búsqueda local sobre literatura de verificación documental, desinformación y fiabilidad de los modelos de lenguaje. Recoge metadatos de OpenAlex, construye un índice invertido y acepta búsquedas booleanas (AND, OR, NOT y paréntesis) ordenadas por TF-IDF. En la entrega indexé 615 artículos y medí la calidad de los resultados con 12 consultas de prueba.</p>
+        <p data-l="en">A local search engine over literature on document verification, misinformation and LLM reliability. It collects metadata from OpenAlex, builds an inverted index and supports Boolean queries (AND, OR, NOT and parentheses) ranked with TF-IDF. The submitted version indexed 615 papers, and I measured the quality of its results with 12 test queries.</p>
+      </div>
+      <div class="project-side">
+        <p class="role" data-l="es"><strong>Mi parte:</strong> todo el proyecto, de la recogida de datos a la evaluación. Más tarde le añadí una interfaz web en Python para poder probarlo sin abrir Colab.</p>
+        <p class="role" data-l="en"><strong>My part:</strong> the whole project, from data collection to evaluation. Later I added a Python web interface so it can be tried without opening Colab.</p>
+        <p class="role" data-l="es"><strong>Lo que aprendí:</strong> a orientar un trabajo de clase hacia mis propios objetivos: elegí un tema cercano a mi TFG y después usé el buscador para encontrar referencias para la memoria. En lo técnico, que los datos de una API real casi nunca llegan listos (tuve que reconstruir los resúmenes de OpenAlex y limpiar el conjunto antes de indexar) y que coincidir en palabras no es coincidir en significado.</p>
+        <p class="role" data-l="en"><strong>What I learned:</strong> to steer a class assignment towards my own goals: I chose a topic close to my thesis and later used the search engine to find references for it. Technically, that data from a real API rarely arrives ready to use (I had to rebuild OpenAlex's abstracts and clean the set before indexing) and that matching words is not the same as matching meaning.</p>
+        <ul class="tags"><li>Python</li><li>OpenAlex API</li><li>TF-IDF</li><li>Jupyter</li></ul>
+        <a class="repo-link" data-repo="AcademicPaperSearch" hidden>GitHub →</a>
+      </div>
+    </article>
+
+    <!-- Basement Band -->
+    <article class="project">
+      <header class="project-head">
+        <p class="meta"><span data-l="es">Universidad de Waikato</span><span data-l="en">University of Waikato</span> · Software Engineering Design · 2025 · <span data-l="es">equipo de cuatro</span><span data-l="en">team of four</span></p>
+        <h3>Basement Band · <span data-l="es">editor de mashups</span><span data-l="en">mashup editor</span></h3>
+      </header>
+      <div class="project-main">
+        <figure class="project-media">
+          <a href="assets/img/mashup-mixer.webp"><img src="assets/img/mashup-mixer.webp" alt="Mezclador multipista de Basement Band con formas de onda" loading="lazy" width="1440" height="1496"></a>
+        </figure>
+        <p data-l="es">Una aplicación web que junta la búsqueda de canciones con un espacio visual para editar audio: formas de onda, pistas separadas por instrumento y un mezclador para combinar varias canciones.</p>
+        <p data-l="en">A web app that combines song search with a visual audio workspace: waveforms, tracks split by instrument and a mixer to combine several songs.</p>
+      </div>
+      <div class="project-side">
+        <p class="role" data-l="es"><strong>Mi parte:</strong> la interfaz en React y su conexión con el servidor: la selección de canciones, las formas de onda, el mezclador multipista y las pistas por instrumento que genera la separación con Demucs. También fui la responsable del repositorio en GitHub: organicé las ramas, integré el trabajo de todos, resolví los conflictos y definí el flujo de trabajo del equipo.</p>
+        <p class="role" data-l="en"><strong>My part:</strong> the React interface and its connection to the server: song selection, waveforms, the multitrack mixer and the per-instrument tracks produced by Demucs separation. I was also in charge of the GitHub repository: I organised the branches, integrated everyone's work, resolved merge conflicts and defined the team's workflow.</p>
+        <p class="role" data-l="es"><strong>Lo que aprendí:</strong> a ser el punto donde se junta el trabajo de todos: entender lo que hacía cada compañero, explicado en inglés, adaptarlo a la interfaz y acordar bien las cosas desde el principio. En lo técnico, mi mayor reto fue sincronizar el frontend con el backend: que lo que devolvía el servidor encajara con lo que esperaba la interfaz, que los cortes de audio coincidieran con lo seleccionado en pantalla y que la interfaz esperara a que Demucs terminara de separar cada canción. Y a superar la vergüenza de presentar el proyecto en inglés, unos 20 minutos, ante un jurado y un centenar de compañeros.</p>
+        <p class="role" data-l="en"><strong>What I learned:</strong> to be the point where everyone's work comes together: understanding what each teammate had built, explained in English, adapting it to the interface and agreeing on things clearly from the start. Technically, my biggest challenge was keeping the frontend and backend in sync: making what the server returned match what the interface expected, making audio cuts line up with the selection on screen, and having the interface wait until Demucs had finished separating each song. And to get over my nerves and present the project in English, for about 20 minutes, to a jury and around a hundred classmates.</p>
+        <ul class="tags"><li>TypeScript</li><li>React</li><li>Vite</li><li>Tailwind CSS</li><li>Node.js</li><li>WaveSurfer.js</li></ul>
+        <a class="repo-link" data-repo="BasementBand-MusicMashup" hidden>GitHub →</a>
+      </div>
+    </article>
+
+    <!-- Bookink -->
+    <article class="project flip">
+      <header class="project-head">
+        <p class="meta"><span data-l="es">Universidad de Alicante</span><span data-l="en">University of Alicante</span> · HADA · 2023–2024 · <span data-l="es">equipo de siete</span><span data-l="en">team of seven</span></p>
+        <h3>Bookink · <span data-l="es">tienda de libros online</span><span data-l="en">online bookshop</span></h3>
+      </header>
+      <div class="project-main">
+        <figure class="project-media">
+          <a href="assets/img/libro-portada.webp"><img src="assets/img/libro-portada.webp" alt="Portada de la librería online Bookink" loading="lazy" width="1440" height="1400"></a>
+        </figure>
+        <p data-l="es">Una librería online con catálogo, fichas de libros, registro de usuarios y panel de administración, hecha entre siete personas.</p>
+        <p data-l="en">An online bookshop with a catalogue, book pages, user sign-up and an admin panel, built by a team of seven.</p>
+      </div>
+      <div class="project-side">
+        <p class="role" data-l="es"><strong>Mi parte:</strong> coordiné el proyecto e implementé los paquetes de lectura en todas las capas (entidades, acceso a datos y páginas de consulta y administración), sobre la base de datos que diseñamos entre todos. También implementé los filtros del catálogo y preparé los datos iniciales de la tienda, y colaboré en la página maestra y la portada.</p>
+        <p class="role" data-l="en"><strong>My part:</strong> I coordinated the project and implemented the reading bundles across every layer (entities, data access, and the pages to browse and manage them), on top of the database we designed together. I also implemented the catalogue filters and prepared the shop's seed data, and contributed to the master page and the home page.</p>
+        <p class="role" data-l="es"><strong>Lo que aprendí:</strong> a liderar un proyecto de varios meses: repartir las tareas entre siete personas, fijar entregas semanales y seguir el avance de cada uno. En lo técnico, a construir una funcionalidad completa en una aplicación por capas (entidades, acceso a datos con ADO.NET y páginas en ASP.NET) y a integrar el trabajo de todos en el repositorio, resolviendo los conflictos que surgían, a veces contrarreloj.</p>
+        <p class="role" data-l="en"><strong>What I learned:</strong> how to lead a project that ran for several months: splitting tasks among seven people, setting weekly deadlines and tracking everyone's progress. Technically, how to build a complete feature in a layered application (entities, data access with ADO.NET and pages in ASP.NET) and how to integrate everyone's work in the repository, resolving the conflicts that came up, sometimes against the clock.</p>
+        <ul class="tags"><li>C#</li><li>ASP.NET Web Forms</li><li>SQL Server</li><li>ADO.NET</li><li>Bootstrap</li></ul>
+        <a class="repo-link" data-repo="Bookink-TiendaOnlineDeLibros" hidden>GitHub →</a>
+      </div>
+    </article>
+
+    <!-- EasyCab -->
+    <article class="project">
+      <header class="project-head">
+        <p class="meta"><span data-l="es">Universidad de Alicante</span><span data-l="en">University of Alicante</span> · Sistemas Distribuidos · 2024–2025 · <span data-l="es">en pareja con Levan Kipiani</span><span data-l="en">with Levan Kipiani</span></p>
+        <h3>EasyCab · <span data-l="es">flota de taxis distribuida</span><span data-l="en">distributed taxi fleet</span></h3>
+      </header>
+      <div class="project-main">
+        <figure class="project-media fit-whole" style="--fit-bg: #ece6db">
+          <a href="assets/img/easycab-collage.webp"><img src="assets/img/easycab-collage.webp" alt="Mapa de taxis en Pygame, formulario del cliente y paneles de control de EasyCab" loading="lazy" width="1400" height="1000"></a>
+        </figure>
+      </div>
+      <div class="project-side">
+        <p data-l="es">Un simulador en el que clientes, una central y los taxis se comunican mediante Kafka y sockets TCP. Tiene sensores en los vehículos, control meteorológico a través de APIs Flask y el mapa de la flota se puede seguir en Pygame o en una web hecha con Astro. Lo desplegamos a la vez en tres ordenadores distintos.</p>
+        <p data-l="en">A simulator where customers, a central server and taxis talk to each other over Kafka and TCP sockets. It has vehicle sensors, weather control through Flask APIs, and the fleet map can be followed in Pygame or in an Astro web view. We deployed it across three different computers at once.</p>
+        <p class="role" data-l="es"><strong>Mi parte:</strong> la visualización de la flota, con el mapa en Pygame, la web en Astro y la API que le pasa el estado del mapa; el módulo de clientes, y buena parte de la central y del motor de los taxis junto a Levan. También preparé el despliegue final y resolví los conflictos al juntar nuestras ramas.</p>
+        <p class="role" data-l="en"><strong>My part:</strong> the fleet visualisation, with the Pygame map, the Astro web view and the API that feeds it the map state; the customer module, and a good share of the central server and the taxi engine together with Levan. I also prepared the final deployment and resolved the conflicts when merging our branches.</p>
+        <p class="role" data-l="es"><strong>Lo que aprendí:</strong> que en un sistema distribuido muchos fallos no están en tu código. Con Kafka tuvimos que lidiar con mensajes que no llegaban en el orden esperado, y desplegarlo en los ordenadores de la universidad, configurando la red de Kafka para que todos los equipos se vieran, nos costó tanto como programarlo. Me llevo paciencia para depurar: aislar el fallo, probar componente a componente y no dar nada por hecho.</p>
+        <p class="role" data-l="en"><strong>What I learned:</strong> that in a distributed system many failures aren't in your code. With Kafka we had to deal with messages that didn't arrive in the expected order, and deploying it on the university computers, configuring Kafka's networking so every machine could see the others, took as much effort as writing it. I came away with patience for debugging: isolating the fault, testing component by component and taking nothing for granted.</p>
+        <ul class="tags"><li>Python</li><li>Apache Kafka</li><li>Flask</li><li>Pygame</li><li>Astro</li></ul>
+        <a class="repo-link" data-repo="EasyCab-Sistemas-Distribuidos" hidden>GitHub →</a>
+      </div>
+    </article>
+
+    <!-- Otras prácticas -->
+    <div class="more">
+      <h3><span data-l="es">Otras prácticas</span><span data-l="en">Other coursework</span></h3>
+      <ul class="more-list">
+        <li>
+          <p class="more-title">Computer Vision Labs</p>
+          <p class="meta">Waikato · 2025</p>
+          <p data-l="es">Convoluciones con NumPy, bloques residuales de ResNet, transfer learning con EfficientNetV2 y mapas de atención de Vision Transformers con DINO.</p>
+          <p data-l="en">Convolutions in NumPy, ResNet residual blocks, transfer learning with EfficientNetV2 and Vision Transformer attention maps with DINO.</p>
+          <a class="repo-link" data-repo="ComputerVision-Labs" hidden>GitHub →</a>
+        </li>
+        <li>
+          <p class="more-title">NLP Transformers Labs</p>
+          <p class="meta">Waikato · 2025</p>
+          <p data-l="es">Atención multicabeza desde cero, generación con SmolLM2, un Transformer pequeño entrenado para una tarea sintética y DistilBERT ajustado para puntuar reseñas.</p>
+          <p data-l="en">Multi-head attention from scratch, generation with SmolLM2, a small Transformer trained on a synthetic task and DistilBERT fine-tuned to score reviews.</p>
+          <a class="repo-link" data-repo="NLP-Transformers-Labs" hidden>GitHub →</a>
+        </li>
+        <li>
+          <p class="more-title">Adaptive Streaming Ensemble</p>
+          <p class="meta">Waikato · 2025 · <span data-l="es">con Ryan Manchester</span><span data-l="en">with Ryan Manchester</span></p>
+          <p data-l="es">Un conjunto de regresores FIMT-DD que se adapta al flujo de datos y sustituye a sus miembros cuando un candidato comete menos error.</p>
+          <p data-l="en">An ensemble of FIMT-DD regressors that adapts to the stream and replaces members when a candidate makes less error.</p>
+        </li>
+        <li>
+          <p class="more-title">IoT Weather Monitoring</p>
+          <p class="meta">West Attica · 2025</p>
+          <p data-l="es">Monitorización de temperatura y humedad simuladas con MQTT, Mosquitto, Docker y Node-RED. En clase trabajamos además con Raspberry Pi.</p>
+          <p data-l="en">Monitoring of simulated temperature and humidity with MQTT, Mosquitto, Docker and Node-RED. In class we also worked with a Raspberry Pi.</p>
+        </li>
+        <li>
+          <p class="more-title"><span data-l="es">Clasificación de imágenes con Deep Learning</span><span data-l="en">Image classification with deep learning</span></p>
+          <p class="meta"><span data-l="es">Universidad de Alicante</span><span data-l="en">University of Alicante</span> · 2024–2025</p>
+          <p data-l="es">Comparación de redes MLP y CNN sobre CIFAR-10.</p>
+          <p data-l="en">Comparing MLP and CNN networks on CIFAR-10.</p>
+        </li>
+        <li>
+          <p class="more-title"><span data-l="es">Camino mínimo con ramificación y poda</span><span data-l="en">Shortest path with branch and bound</span></p>
+          <p class="meta"><span data-l="es">Universidad de Alicante</span><span data-l="en">University of Alicante</span></p>
+          <p data-l="es">En C++17, con cola de prioridad, cotas, reconstrucción del camino y estadísticas de la búsqueda.</p>
+          <p data-l="en">In C++17, with a priority queue, bounds, path reconstruction and search statistics.</p>
+          <a class="repo-link" data-repo="CaminoMinimo-RamificacionYPoda" hidden>GitHub →</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ TRAYECTORIA ============ -->
+  <section class="path" id="trayectoria">
+    <div class="wrap path-grid">
+      <div>
+        <p class="label label-solo"><span data-l="es">Trayectoria · Alicante, Hamilton y Atenas</span><span data-l="en">Background · Alicante, Hamilton and Athens</span></p>
+        <ol class="timeline">
+          <li>
+            <p class="when">2022 – <span data-l="es">actualidad</span><span data-l="en">present</span></p>
+            <p class="what"><span data-l="es">Grado en Ingeniería Informática</span><span data-l="en">BSc in Computer Engineering</span></p>
+            <p class="where"><span data-l="es">Universidad de Alicante</span><span data-l="en">University of Alicante</span> · <span data-l="es">itinerario de Computación</span><span data-l="en">Computing track</span></p>
+          </li>
+          <li>
+            <p class="when"><span data-l="es">Feb – jun 2025</span><span data-l="en">Feb – Jun 2025</span></p>
+            <p class="what"><span data-l="es">Movilidad global en Nueva Zelanda</span><span data-l="en">Global mobility exchange in New Zealand</span></p>
+            <p class="where"><span data-l="es">Universidad de Waikato</span><span data-l="en">University of Waikato</span> · Computer Vision, Natural Language Processing, Machine Learning for Data Streams, Software Engineering Design</p>
+          </li>
+          <li>
+            <p class="when"><span data-l="es">Sep 2025 – feb 2026</span><span data-l="en">Sep 2025 – Feb 2026</span></p>
+            <p class="what"><span data-l="es">Erasmus en Grecia</span><span data-l="en">Erasmus in Greece</span></p>
+            <p class="where"><span data-l="es">Universidad de West Attica</span><span data-l="en">University of West Attica</span>, <span data-l="es">Atenas</span><span data-l="en">Athens</span> · Robotics, Information Retrieval, Internet of Things</p>
+          </li>
+          <li>
+            <p class="when">2026</p>
+            <p class="what"><span data-l="es">TFG con Facephi</span><span data-l="en">Thesis with Facephi</span></p>
+            <p class="where"><span data-l="es">Validación documental del DNI con OCR y agentes</span><span data-l="en">ID document validation with OCR and agents</span></p>
+          </li>
+        </ol>
+
+        <h3 class="sub"><span data-l="es">Experiencia</span><span data-l="en">Experience</span></h3>
+        <div class="job">
+          <p class="what"><span data-l="es">Soporte informático y digitalización</span><span data-l="en">IT support and digitalisation</span></p>
+          <p class="where">Revestimientos Mediterráneos S. L. · Novelda · <span data-l="es">empresa familiar de construcción · veranos</span><span data-l="en">family construction company · summers</span></p>
+          <p data-l="es">Daba soporte informático a la oficina: resolvía problemas con los equipos, la red y el servidor, y ayudaba con Microsoft 365 y con Excel, por ejemplo al preparar presupuestos. También enseñaba a la plantilla a hacer tareas por su cuenta y ayudé a configurar el escritorio remoto para trabajar con el ordenador de la oficina desde fuera.</p>
+          <p data-l="en">I provided IT support to the office: I solved problems with computers, the network and the server, and helped with Microsoft 365 and Excel, for example when preparing quotes. I also showed staff how to handle tasks on their own and helped set up remote desktop access so the office computer could be used from outside.</p>
+        </div>
+      </div>
+
+      <aside class="side">
+        <div class="box">
+          <h3><span data-l="es">Idiomas</span><span data-l="en">Languages</span></h3>
+          <ul class="langs">
+            <li><span data-l="es">Castellano</span><span data-l="en">Spanish</span><em><span data-l="es">nativo</span><span data-l="en">native</span></em></li>
+            <li><span data-l="es">Valenciano</span><span data-l="en">Valencian</span><em><span data-l="es">nativo · C1 certificado</span><span data-l="en">native · certified C1</span></em></li>
+            <li><span data-l="es">Inglés</span><span data-l="en">English</span><em><span data-l="es">B2 Cambridge · preparando el C1</span><span data-l="en">B2 Cambridge · preparing C1</span></em></li>
+            <li><span data-l="es">Alemán</span><span data-l="en">German</span><em><span data-l="es">A2 certificado</span><span data-l="en">certified A2</span></em></li>
+          </ul>
+        </div>
+
+        <div class="box">
+          <h3><span data-l="es">Herramientas</span><span data-l="en">Tools</span></h3>
+          <dl class="skills">
+            <dt><span data-l="es">IA y datos</span><span data-l="en">AI &amp; data</span></dt>
+            <dd>Python, PyTorch, scikit-learn, Hugging Face, CapyMOA, pandas, NumPy, PaddleOCR, LangGraph</dd>
+            <dt><span data-l="es">Desarrollo</span><span data-l="en">Development</span></dt>
+            <dd>TypeScript, JavaScript, React, Node.js, C#, ASP.NET, Java, C++</dd>
+            <dt><span data-l="es">Sistemas</span><span data-l="en">Systems</span></dt>
+            <dd>SQL, Apache Kafka, FastAPI, Flask, Docker, MQTT</dd>
+            <dt><span data-l="es">Trabajo diario</span><span data-l="en">Everyday</span></dt>
+            <dd>Git, GitHub, Jupyter, Colab, VS Code, Microsoft 365</dd>
+          </dl>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ FUERA DE LA PANTALLA ============ -->
+  <section class="beyond wrap">
+    <p class="label"><span data-l="es">Fuera de la pantalla</span><span data-l="en">Off screen</span></p>
+    <div class="beyond-grid">
+      <div>
+        <h3><span data-l="es">Danza clásica</span><span data-l="en">Classical ballet</span></h3>
+        <p data-l="es">Tengo el título profesional de Danza Clásica por el Conservatorio Profesional de Danza de Novelda. De la danza me quedo con la perseverancia y la disciplina de trabajar algo durante mucho tiempo, aunque los resultados lleguen despacio. Llegué a entrenar unas 22 horas a la semana mientras estudiaba en el instituto, y eso me enseñó a organizar muy bien mi tiempo. También aprendí a gestionar los nervios antes de salir a un escenario.</p>
+        <p data-l="en">I hold the professional diploma in Classical Ballet from the Novelda Professional Dance Conservatory. Ballet gave me perseverance and the discipline to keep working at something for a long time, even when results come slowly. I trained around 22 hours a week alongside secondary school, which taught me to manage my time very well. I also learned to handle my nerves before going on stage.</p>
+        <div class="photo-strip">
+          <figure>
+            <a href="assets/img/fotos/danza-estudio.webp"><img src="assets/img/fotos/danza-estudio.webp" alt="Aitana con tutú blanco en posición de ballet en un estudio" loading="lazy" width="1062" height="1600" style="object-position: 50% 38%"></a>
+          </figure>
+          <figure>
+            <a href="assets/img/fotos/danza-circus.webp"><img src="assets/img/fotos/danza-circus.webp" alt="Aitana bailando sobre un escenario decorado con el cartel Circus" loading="lazy" width="1600" height="740" style="object-position: 61% 50%"></a>
+            <figcaption class="sr-only"><span data-l="es">Gala de fin de curso</span><span data-l="en">End-of-year gala</span></figcaption>
+          </figure>
+          <figure>
+            <a href="assets/img/fotos/danza-retrato.webp"><img src="assets/img/fotos/danza-retrato.webp" alt="Retrato en blanco y negro de Aitana con moño y maillot" loading="lazy" width="1068" height="1600" style="object-position: 50% 28%"></a>
+          </figure>
+          <figure>
+            <a href="assets/img/fotos/danza-ensayo.webp"><img src="assets/img/fotos/danza-ensayo.webp" alt="Aitana ensayando de puntas en un escenario con telón rojo" loading="lazy" width="1200" height="1600" style="object-position: 58% 40%"></a>
+            <figcaption class="sr-only"><span data-l="es">Ensayo en el escenario</span><span data-l="en">Rehearsing on stage</span></figcaption>
+          </figure>
+        </div>
+      </div>
+      <div>
+        <h3><span data-l="es">Nueva Zelanda</span><span data-l="en">New Zealand</span></h3>
+        <p data-l="es">Estudié un cuatrimestre en la Universidad de Waikato, un referente en aprendizaje automático (allí nacieron Weka y MOA), y aprendí muchísimo de sus profesores. Conviví con gente de continentes diferentes y descubrí culturas que apenas conocía, como la maorí o las de las islas del Pacífico. Estar tan lejos de casa, en un país culturalmente tan distinto, me cambió la forma de ver muchas cosas.</p>
+        <p data-l="en">I spent a semester at the University of Waikato, a leading place for machine learning (Weka and MOA were born there), and learned a great deal from its lecturers. I lived alongside people from different continents and discovered cultures I barely knew, such as Māori and Pacific Island cultures. Being so far from home, in such a culturally different country, changed the way I see a lot of things.</p>
+        <div class="photo-strip">
+          <figure>
+            <a href="assets/img/fotos/nz-waikato.webp"><img src="assets/img/fotos/nz-waikato.webp" alt="Cartel de la Universidad de Waikato en el campus" loading="lazy" width="1200" height="1600" style="object-position: 50% 72%"></a>
+            <figcaption class="sr-only"><span data-l="es">Campus de la Universidad de Waikato</span><span data-l="en">University of Waikato campus</span></figcaption>
+          </figure>
+          <figure>
+            <a href="assets/img/fotos/nz-graduacion.webp"><img src="assets/img/fotos/nz-graduacion.webp" alt="Pantalla de la celebración de despedida de los estudiantes internacionales de Waikato" loading="lazy" width="1200" height="1600" style="object-position: 50% 45%"></a>
+            <figcaption class="sr-only"><span data-l="es">Ceremonia de despedida de estudiantes internacionales</span><span data-l="en">Farewell ceremony for international students</span></figcaption>
+          </figure>
+          <figure>
+            <a href="assets/img/fotos/nz-graduacion-amigas.webp"><img src="assets/img/fotos/nz-graduacion-amigas.webp" alt="Aitana con dos compañeras y sus diplomas junto a un lago" loading="lazy" width="1400" height="1050" style="object-position: 50% 62%"></a>
+          </figure>
+          <figure>
+            <a href="assets/img/fotos/nz-montana.webp"><img src="assets/img/fotos/nz-montana.webp" alt="Aitana en lo alto de una montaña con un lago al fondo" loading="lazy" width="1200" height="1600" style="object-position: 40% 68%"></a>
+            <figcaption class="sr-only"><span data-l="es">Roys Peak, Wānaka</span><span data-l="en">Roys Peak, Wānaka</span></figcaption>
+          </figure>
+        </div>
+      </div>
+      <div>
+        <h3><span data-l="es">Grecia</span><span data-l="en">Greece</span></h3>
+        <p data-l="es">El Erasmus en Atenas fue la segunda vez que empecé de cero en otra ciudad: una universidad muy distinta a la mía, con otros códigos y otra forma de trabajar, gente nueva y muchos viajes. Aprendí a adaptarme rápido y a abrir la mente.</p>
+        <p data-l="en">My Erasmus in Athens was the second time I started from scratch in a new city: a university very different from mine, with its own codes and ways of working, new people and plenty of travel. I learned to adapt quickly and to open my mind.</p>
+        <div class="photo-strip">
+          <figure>
+            <a href="assets/img/fotos/gr-raspberry.webp"><img src="assets/img/fotos/gr-raspberry.webp" alt="Raspberry Pi conectada en una mesa de clase" loading="lazy" width="1200" height="1600" style="object-position: 55% 50%"></a>
+            <figcaption class="sr-only"><span data-l="es">Montando una Raspberry Pi en clase de IoT</span><span data-l="en">Setting up a Raspberry Pi in IoT class</span></figcaption>
+          </figure>
+          <figure>
+            <a href="assets/img/fotos/gr-clase-raspberry.webp"><img src="assets/img/fotos/gr-clase-raspberry.webp" alt="Aula de informática con una diapositiva sobre Raspberry Pi proyectada" loading="lazy" width="1200" height="1600" style="object-position: 50% 42%"></a>
+            <figcaption class="sr-only"><span data-l="es">Clase de IoT en la Universidad de West Attica</span><span data-l="en">IoT class at the University of West Attica</span></figcaption>
+          </figure>
+          <figure>
+            <a href="assets/img/fotos/gr-esn-paises.webp"><img src="assets/img/fotos/gr-esn-paises.webp" alt="Pantalla con los países de origen de los estudiantes Erasmus" loading="lazy" width="1200" height="1600" style="object-position: 50% 52%"></a>
+            <figcaption class="sr-only"><span data-l="es">Bienvenida Erasmus</span><span data-l="en">Erasmus welcome</span></figcaption>
+          </figure>
+          <figure>
+            <a href="assets/img/fotos/gr-esn-bienvenida.webp"><img src="assets/img/fotos/gr-esn-bienvenida.webp" alt="Auditorio durante el acto de bienvenida del ESN" loading="lazy" width="1200" height="1600" style="object-position: 50% 50%"></a>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACTO ============ -->
+  <section class="contact" id="contacto">
+    <div class="wrap">
+      <p class="label"><span data-l="es">Contacto</span><span data-l="en">Contact</span></p>
+      <h2><span data-l="es">¿Hablamos?</span><span data-l="en">Let's talk</span></h2>
+      <p class="contact-lead" data-l="es">Si quieres saber más sobre alguno de mis proyectos o simplemente hablar conmigo, escríbeme.</p>
+      <p class="contact-lead" data-l="en">If you'd like to know more about any of my projects, or simply have a chat, get in touch.</p>
+      <ul class="contact-links">
+        <li><a href="mailto:aitanacantorico5@gmail.com">aitanacantorico5@gmail.com</a></li>
+        <li id="linkedin-item" hidden><a id="linkedin-link" href="#" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/aitanacanto" rel="noopener">github.com/aitanacanto</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer wrap">
+  <p>© 2026 Aitana Cantó Rico</p>
+  <a href="#top"><span data-l="es">Volver arriba ↑</span><span data-l="en">Back to top ↑</span></a>
+</footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Imagen ampliada">
+  <button class="lb-btn lb-close" id="lb-close" type="button" aria-label="Cerrar">×</button>
+  <button class="lb-btn lb-prev" id="lb-prev" type="button" aria-label="Anterior">‹</button>
+  <figure class="lb-figure">
+    <img id="lb-img" alt="">
+    <figcaption id="lb-cap"></figcaption>
+  </figure>
+  <button class="lb-btn lb-next" id="lb-next" type="button" aria-label="Siguiente">›</button>
+</dialog>
+
+<script src="assets/js/main.js?v=8"></script>
+</body>
+</html>
