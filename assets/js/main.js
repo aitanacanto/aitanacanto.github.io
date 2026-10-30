@@ -2,7 +2,7 @@
 // Cuando tengas el CV listo, guárdalo en assets/ y pon aquí su ruta, p. ej. "assets/CV-Aitana-Canto.pdf".
 const CV_URL = null;
 // Pega aquí la dirección de tu perfil, p. ej. "https://www.linkedin.com/in/tu-usuario/".
-const LINKEDIN_URL = "https://www.linkedin.com/in/aitana-cant%C3%B3-rico-557204309/";
+const LINKEDIN_URL = "https://www.linkedin.com/in/aitana-cant%C3%B3-rico/";
 // Repositorios que ya sean públicos en GitHub: solo esos muestran el enlace en su proyecto.
 const PUBLIC_REPOS = [
   "StreamingTransitForecasting",
